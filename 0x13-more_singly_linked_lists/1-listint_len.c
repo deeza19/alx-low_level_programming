@@ -2,9 +2,9 @@
 
 /**
  * listint_len - returns the number of element in a linked lits
- * @h: linked lit of type listint_t to traverse
+ * @h: linked list of type listint_t to traverse
  *
- * return: number of nodes
+ * Return: number of nodes
  */
 size_t listint_len(const listint_t *h)
 {
