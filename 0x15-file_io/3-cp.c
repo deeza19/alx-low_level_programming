@@ -26,7 +26,7 @@ char *create_buffer(char *file)
 	return (buffer);
 }
 
-/***
+/**
  * close_file - closes file descriptors
  * @fd: the file descriptor to be losed
  */
