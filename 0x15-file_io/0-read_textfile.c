@@ -10,7 +10,13 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	char *buf;
+	FILE *filename
+	filename = fopen("filename", "r");
+	printf("%s", fgetc(letters, 1000, filename);
+	
+	fclose(filename);
+	return (0);
+	/**char *buf;
 	ssize_t fd;
 	ssize_t w;
 	ssize_t t;
@@ -25,4 +31,5 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	free(buf);
 	close(fd);
 	return (w);
+	*/
 }
