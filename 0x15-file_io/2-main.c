@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
  * main - checks the code
  *
@@ -9,14 +8,15 @@
  */
 int main(int ac, char **ab)
 {
-	ssize_t n;
+	int dec;
 
-	if (ac != 2)
+	if (ac != 3)
 	{
-		dprintf(2, "Usage: %s filename\n", ab[0]);
+		dprintf(2, "Usage: %s filename text\n", ab[0]);
 		exit(1);
 	}
-	n = read_textfile(ab[2], 114);
-	printf("\nprinted chars: %li)\n", n);
+
+	dec = append_text_to_file(ab[1], ab[2]);
+	printf("-> %i\n", dec);
 	return (0);
 }
