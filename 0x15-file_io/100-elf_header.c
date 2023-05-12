@@ -13,8 +13,8 @@ void print_data(unsigned char *e_ident);
 void print_version(unsigned char *e_ident);
 void print_abi(unsigned char *e_ident);
 void print_osabi(unsigned char *e_ident);
-void print_type(unsigned char *e_ident);
-void print_entry(unsigned char *e_ident);
+void print_type(unsigned int e_type, unsigned char *e_ident);
+void print_entry(unsigned long int e_entry, unsigned char *e_ident);
 void close_elf(int elf);
 
 /**
@@ -23,7 +23,7 @@ void close_elf(int elf);
  *
  * Description: if the file is not an ELF file - exit code 98
  */
-void check_elf(unsigned char *e_indent)
+void check_elf(unsigned char *e_ident)
 {
 	int index;
 
@@ -52,7 +52,7 @@ void print_magic(unsigned char *e_ident)
 
 	printf(" Magic: ");
 
-	for (index = 0; index < EI_INDENT; index++)
+	for (index = 0; index < EI_NIDENT; index++)
 	{
 		printf("%02x", e_ident[index]);
 
@@ -78,7 +78,7 @@ void print_class(unsigned char *e_ident)
 			break;
 
 		case ELFCLASS32:
-			printf("ELF32\N");
+			printf("ELF32\n");
 			break;
 		case ELFCLASS64:
 			printf("ELF64\n");
@@ -92,20 +92,20 @@ void print_class(unsigned char *e_ident)
  * print_data - prints the data of an ELF header
  * @e_ident: a pointer to an array containig the ELF class
  */
-void print_data(unsigned char *e_indent)
+void print_data(unsigned char *e_ident)
 {
 	printf(" Data: ");
 
 	switch (e_ident[EI_DATA])
 	{
-		case ELFDATAONE:
+		case ELFDATANONE:
 			printf("none\n");
 			break;
 		case ELFDATA2LSB:
 			printf("2's complement, little endian\n");
 			break;
 		case ELFDATA2MSB:
-			printf("2's complement, big endian\m");
+			printf("2's complement, big endian\n");
 			break;
 		default:
 			printf("<unknown: %x>\n", e_ident[EI_CLASS]);
@@ -172,7 +172,7 @@ void print_osabi(unsigned char *e_ident)
 			printf("Standalone App\n");
 			break;
 		default:
-			printf("<unknown: %x>\n", e_ident[EL_OSABI]);
+			printf("<unknown: %x>\n", e_ident[EI_OSABI]);
 	}
 }
 
@@ -204,7 +204,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 		case ET_REL:
 			printf("REL (Relocatable file)\n");
 			break;
-		case ET_EXEXC:
+		case ET_EXEC:
 			printf("EXEC (Executable file)\n");
 			break;
 		case ET_DYN:
@@ -223,7 +223,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
  * @e_entry: the address of the ELF entry point
  * @e_ident: a pointer to an array containing the ELF class
  */
-void print_entry(unsigned long int e_entry, unsigned cah *e_ident)
+void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
 	printf(" Entry point address: ");
 
@@ -265,7 +265,7 @@ void close_elf(int elf)
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	Elf64_Ehdr *heder;
+	Elf64_Ehdr *header;
 	int o, r;
 
 	o = open(argv[1], O_RDONLY);
