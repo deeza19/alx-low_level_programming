@@ -9,6 +9,5 @@ int main(void)
 {
 	print_binary(50);
 		printf("\n");
-
 		return (0);
 }

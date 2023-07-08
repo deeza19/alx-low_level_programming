@@ -8,7 +8,8 @@
 int main(void)
 {
 	int z;
+
 	z = get_bit(40, 16);
-		printf("%d\n", z);
-		return (0);
+	printf("%d\n", z);
+	return (0);
 }
