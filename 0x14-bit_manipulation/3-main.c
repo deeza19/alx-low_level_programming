@@ -8,8 +8,9 @@
 int main(void)
 {
 	unsigned long int z;
+
 	z = 60;
 	set_bit(&z, 4);
-		printf("%lu\n", z);
-       return (0);
+	printf("%lu\n", z);
+	return (0);
 }

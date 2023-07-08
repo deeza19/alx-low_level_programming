@@ -8,9 +8,9 @@
 int main(void)
 {
 	unsigned long int z;
+
 	z = 426;
 	clear_bit(&z, 23);
 	printf("%lu\n", z);
-
 	return (0);
 }
