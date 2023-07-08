@@ -9,6 +9,7 @@
 int main(void)
 {
 	int n;
+
 	n = get_endianness();
 	if (n != 0)
 	{
@@ -18,5 +19,6 @@ int main(void)
 	{
 		printf("Big Endian\n");
 	}
+
 	return (0);
 }
