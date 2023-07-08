@@ -1,4 +1,4 @@
-#include <main.h>
+#include "main.h"
 #include <stdio.h>
 
 /**
@@ -11,9 +11,14 @@ unsigned int binary_to_uint(const char *b)
 {
 	int i;
 	unsigned int dec_val = 0;
+	if (!b)
+		return (0);
 
-	if (b != "0 & 1")
-		b = NULL;
-
-	if (i = 0; i < b - 1; i++)
-		dec_val = 2 * b[0]
+	for (i = 0; b[i]; i++)
+	{
+		if (b[i] < '0' || b[i] > '1')
+			return (0);
+		dec_val = 2 * dec_val + (b[i] - '0');
+	}
+	return (dec_val);
+}
