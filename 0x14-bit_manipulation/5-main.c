@@ -8,9 +8,10 @@
 int main(void)
 {
 	unsigned int x;
+
 	x = 200;
 	flip_bits(200, 8);
-	printf("%u\n" , x);
+	printf("%u\n", x);
 
-			return (0);
+	return (0);
 }
