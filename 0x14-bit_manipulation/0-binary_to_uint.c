@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * binary_to_uint(const char *b) - converts a binary to an unsigned
+ * binary_to_uint - converts a binary to an unsigned
  * @b: points to a string of 0 and 1 chars
  *
  * Return: converted number or 0
