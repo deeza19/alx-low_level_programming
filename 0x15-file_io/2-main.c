@@ -3,6 +3,8 @@
 #include <stdlib.h>
 /**
  * main - checks the code
+ * @ab: points to file strings
+ * @ac: number of characters
  *
  * Return: Always 0
  */
@@ -18,5 +20,5 @@ int main(int ac, char **ab)
 
 	dec = append_text_to_file(ab[1], ab[2]);
 	printf("-> %i\n", dec);
-	return (0);
+return (0);
 }

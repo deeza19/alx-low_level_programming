@@ -4,6 +4,8 @@
 
 /**
  * main - checks the code
+ * @ab: points to file strings
+ * @ac: number of characters
  *
  * Return: Always 0
  */
@@ -18,5 +20,5 @@ int main(int ac, char **ab)
 	}
 	n = read_textfile(ab[2], 114);
 	printf("\nprinted chars: %li)\n", n);
-	return (0);
+return (0);
 }

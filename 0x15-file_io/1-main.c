@@ -4,6 +4,8 @@
 
 /**
  * main - checks the code
+ * @ab: points to file strings
+ * @ac: number of characters
  *
  * Return: Always 0
  */
@@ -18,5 +20,5 @@ int main(int ac, char **ab)
 	}
 	dec = create_file(ab[1], ab[2]);
 	printf("-> %i\n", dec);
-	return (0);
+return (0);
 }
